@@ -62,7 +62,7 @@ class mydataset(Dataset):
             T.Normalize(mean=[0.485], std=[0.229])
         ])
         #One-hot Encode
-        self.target_transform=Lambda(lambda y: torch.zeros(2, dtype=torch.float).scatter_(0., y.clone().detach(), value=1))
+        self.target_transform=Lambda(lambda y: torch.zeros(2, dtype=torch.float).scatter_(0, y.clone().detach(), value=1))
     def __len__(self):#数据集划分成多少个batch时有__len__方法确定的
         return len(self.label)
     def __getitem__(self,idx):
